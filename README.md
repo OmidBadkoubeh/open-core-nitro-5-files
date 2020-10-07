@@ -44,6 +44,52 @@
 
             * [`Lilu`](https://github.com/acidanthera/Lilu/releases)
 
+        - VirtualSMC Plugins:
+
+            * `SMCProcessor.kext` : Used for monitoring CPU temperature
+
+        - Graphics: 
+
+            * [WhateverGreen](https://github.com/acidanthera/WhateverGreen/releases)
+
+                - Note the `SSDT-PNLF.dsl` file included is only required for laptops and AIOs
+
+        - Audio:
+
+            * [AppleALC](https://github.com/acidanthera/AppleALC/releases)
+
+        - Ethernet: 
+
+            * [AtherosE2200](https://github.com/Mieze/AtherosE2200Ethernet/releases)
+
+        - WiFi and Bluetooth:
+
+            * [AX200 Wifi](https://github.com/OpenIntelWireless/itlwm/releases)
+
+            * [Intel Bluetooth](https://github.com/OpenIntelWireless/IntelBluetoothFirmware/releases)
+
+        - Extras:
+
+            * [NVMEFix](https://github.com/acidanthera/NVMeFix/releases)
+
+        - Laptop Specifics: 
+
+            * Input drivers: 
+
+                - [VooDooSMBus](https://github.com/VoodooSMBus/VoodooSMBus) [^3]
+
+                - [VooDooI2C](https://github.com/VoodooI2C/VoodooI2C/releases)
+
+                - [AlpsT4USB](https://github.com/blankmac/AlpsT4USB)
+
+                    * Used for USB ALPS devices, note this does **not** work with I2C based devices.
+
+        - Misc:
+
+            * [NoTouchID](https://github.com/al3xtjames/NoTouchID/releases)
+
+                - Recommended for MacBook `SMBIOS` that include a TouchID sensor to fix auth issues, generally 2016 and newer `SMBIOS` will require this.
+
     * [SSDTs](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#ssdts)
 
 4. Make [ACPI Files](https://dortania.github.io/Getting-Started-With-ACPI/#getting-started-with-acpi) Mentioned [Here](#mandatory-acpi)
@@ -95,7 +141,7 @@
 
 ---
 
-[x] - `VooDooSMBus.kext`
+[x] - `VooDooSMBus.kext` & `AlpsT4USB`
 
 [] - `VooDooI2C.kext`
 
