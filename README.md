@@ -1,4 +1,4 @@
-# Acer Nitro 5 (515-54) Open Core Files
+# Acer Nitro 5 2019 (515-54) Open Core Files
 
 ---
 
@@ -17,6 +17,16 @@
 * [SSDT-AWAC/RTC0 (System Clock)](https://dortania.github.io/Getting-Started-With-ACPI/Universal/awac.html#fixing-system-clocks-ssdt-awac-rtc0)
 
 * [SSDT-PMC (NVRAM)](https://dortania.github.io/Getting-Started-With-ACPI/Universal/nvram.html#fixing-nvram-ssdt-pmc)
+
+
+| Required SSDTs |	Description |
+| :------------: | :----------- |
+| SSDT-PLUG |	Allows for native CPU power management on Haswell and newer, see [Getting Started With ACPI Guide](https://dortania.github.io/Getting-Started-With-ACPI/) for more details.
+| SSDT-EC-USBX |	Fixes both the embedded controller and USB power, see [Getting Started With ACPI Guide](https://dortania.github.io/Getting-Started-With-ACPI/) for more details.
+| SSDT-GPIO |	Creates a stub so VoodooI2C can connect, for those having troubles getting VoodooI2C working can try [SSDT-XOSI](https://github.com/dortania/Getting-Started-With-ACPI/blob/master/extra-files/compiled/SSDT-XOSI.aml) instead
+| SSDT-PNLF-CFL |	Fixes brightness control, see [Getting Started With ACPI Guide](https://dortania.github.io/Getting-Started-With-ACPI/) for more details.
+| SSDT-AWAC |	This is the 300 series RTC patch, required for most B360, B365, H310, H370, Z390 and some Z370 boards which prevent systems from booting macOS. The alternative is [SSDT-RTC0](https://dortania.github.io/Getting-Started-With-ACPI/) for when AWAC SSDT is incompatible due to missing the Legacy RTC clock, to check whether you need it and which to use please see [Getting Started With ACPI](https://dortania.github.io/Getting-Started-With-ACPI/) page.
+| SSDT-PMC |	So true 300 series motherboards(non-Z370) don't declare the FW chip as MMIO in ACPI and so XNU ignores the MMIO region declared by the UEFI memory map. This SSDT brings back NVRAM support. Note that 10th gen CPUs do not need this. See [Getting Started With ACPI Guide](https://dortania.github.io/Getting-Started-With-ACPI/) for more details.
 
 ---
 
@@ -102,6 +112,16 @@
 
 5. [`config.plist` Setup](https://dortania.github.io/OpenCore-Install-Guide/config.plist/#config-plist-setup)
 
+    * [Make `config.plist`](https://dortania.github.io/OpenCore-Install-Guide/config-laptop.plist/coffee-lake-plus.html#laptop-coffee-lake-plus-and-comet-lake)
+
+    * Tools:
+
+        - [ProperTree](https://github.com/corpnewt/ProperTree)
+
+        - [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS)
+
+        - [`Sample/config.plist`](https://github.com/acidanthera/OpenCorePkg/releases)
+
 ---
 
 # Installation
@@ -109,6 +129,31 @@
 1. [Enable BIOS settings optimal for macOS](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#installation-process)
 
     * Read up on the [Multiboot Guide](https://hackintosh-multiboot.gitbook.io/hackintosh-multiboot/)
+
+    * **Disable**: 
+
+        * `Fast Boot`
+        * `Secure Boot`
+        * `Serial/COM Port`
+        * `Parallel Port`
+        * `VT-d (can be enabled if you set DisableIoMapper to YES)`
+        * `CSM`
+        * `Thunderbolt(For initial install, as Thunderbolt can cause issues if not setup correctly)`
+        * `Intel SGX`
+        * `Intel Platform Trust`
+        * `CFG Lock (MSR 0xE2 write protection)`
+
+    * **Enable**:
+
+        * `VT-x`
+        * `Above 4G decoding`
+        * `Hyper-Threading`
+        * `Execute Disable Bit`
+        * `EHCI/XHCI Hand-off`
+        * `OS type: Windows 8.1/10 UEFI Mode`
+        * `DVMT Pre-Allocated(iGPU Memory): 64MB`
+        * `SATA Mode: AHCI`
+
 
 1. [Double checking your work](https://dortania.github.io/OpenCore-Install-Guide/installation/installation-process.html#double-checking-your-work)
 
