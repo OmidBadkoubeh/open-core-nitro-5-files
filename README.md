@@ -12,3 +12,4 @@
 
 * SSDT-AWAC/RTC0 (System Clock)
 
+* SSDT-PMC (NVRAM)
