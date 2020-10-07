@@ -1,0 +1,7 @@
+# Root directory zip files
+*.zip
+
+# Log files
+**/*.log
+
+.vscode
