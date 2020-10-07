@@ -30,7 +30,19 @@
 
     * [Firmware Drivers](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#firmware-drivers)
 
+        - Universal
+
+            * [`HfsPlus.efi`](https://github.com/acidanthera/OcBinaryData/blob/master/Drivers/HfsPlus.efi)
+
+            * [`OpenRuntime.efi`](https://github.com/acidanthera/OpenCorePkg/releases) [^2]
+
     * [Kexts](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#kexts)
+
+        - Must Haves:
+
+            * [`VirtualSMC`](https://github.com/acidanthera/VirtualSMC/releases)
+
+            * [`Lilu`](https://github.com/acidanthera/Lilu/releases)
 
     * [SSDTs](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#ssdts)
 
@@ -78,3 +90,14 @@
 ---
 
 [^1]: As they Recommended [here](https://dortania.github.io/OpenCore-Install-Guide/ktext.html#laptop)
+
+[^2]: This file is in `Open Core` project files.
+
+---
+
+[x] - `VooDooSMBus.kext`
+
+[] - `VooDooI2C.kext`
+
+---
+
